@@ -3,23 +3,30 @@
 var path = require('path');
 var assert = require('yeoman-generator').assert;
 var helpers = require('yeoman-generator').test;
-var os = require('os');
 
 describe('watch-page:app', function () {
 
+  var prompts = {
+    pageName: 'another test'
+  };
+
   before(function (done) {
     helpers.run(path.join(__dirname, '../generators/app'))
-      .withOptions({ skipInstall: true })
-      .withPrompts({ someOption: true })
+      .withPrompts(prompts)
+      .inTmpDir()
       .on('end', done);
   });
 
-  it('creates files', function () {
-    assert.file([
-      'bower.json',
-      'package.json',
-      '.editorconfig',
-      '.jshintrc'
-    ]);
+  it('creates the expected files', function () {
+    var expectedFiles = [
+      'client/spec/pages/anotherTestPage.spec.js',
+      'client/src/js/pages/anotherTestPage.js',
+      'client/src/styles/pages/_anotherTestPage.scss',
+      'client/src/templates/pages/anotherTestPage.hbs'
+    ];
+    assert.file(expectedFiles);
   });
+
+  it('should tell you what to do next');
+
 });
