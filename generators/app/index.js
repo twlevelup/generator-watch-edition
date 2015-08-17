@@ -6,7 +6,7 @@ var stringUtils = require('underscore.string');
 
 module.exports = yeoman.generators.Base.extend({
 
-  promptUser: function () {
+  prompting: function () {
 
     var done = this.async();
 
@@ -24,16 +24,11 @@ module.exports = yeoman.generators.Base.extend({
 
   },
 
-  setupFolders: function () {
-    this.mkdir('pages');
-    this.mkdir('specs');
-    this.mkdir('templates');
-    this.mkdir('styles');
-  },
-
   // TODO split out code to create template variables
   // TODO split out code to create file names
-  copyMainFiles: function () {
+  writing: function () {
+
+    var done = this.async();
 
     var title = this.pageName;
 
@@ -58,15 +53,22 @@ module.exports = yeoman.generators.Base.extend({
       filesNames: filesNames
     };
 
+    this.filesNames = filesNames;
+    this.templateParams = templateParams;
+
     this.template('_page.js', 'client/src/js/pages/' + filesNames.page, templateParams);
     this.template('_spec.js', 'client/spec/pages/' + filesNames.spec, templateParams);
     this.template('_styles.scss', 'client/src/styles/pages/' + filesNames.scss, templateParams);
     this.template('_template.hbs', 'client/src/templates/pages/' + filesNames.template, templateParams);
 
-    // TODO something better than this
-    console.log('Now add ' + jsClassName + ' to the router');
-    console.log('Then add @import(\'' + filesNames.scss + '\'); to app.scss');
+    done();
 
+  },
+
+  end: function () {
+    // TODO something better than this
+    this.log('Now add ' + this.jsClassName + ' to the router');
+    this.log('Then add @import(\'' + this.filesNames.scss + '\'); to app.scss');
   }
 
 });

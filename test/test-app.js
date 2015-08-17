@@ -17,16 +17,24 @@ describe('watch-page:app', function () {
       .on('end', done);
   });
 
-  it('creates the expected files', function () {
-    var expectedFiles = [
-      'client/spec/pages/anotherTestPage.spec.js',
-      'client/src/js/pages/anotherTestPage.js',
-      'client/src/styles/pages/_anotherTestPage.scss',
-      'client/src/templates/pages/anotherTestPage.hbs'
-    ];
-    assert.file(expectedFiles);
+  describe('writing', function () {
+
+    it('creates the expected files', function () {
+      var expectedFiles = [
+        'client/spec/pages/anotherTestPage.spec.js',
+        'client/src/js/pages/anotherTestPage.js',
+        'client/src/styles/pages/_anotherTestPage.scss',
+        'client/src/templates/pages/anotherTestPage.hbs'
+      ];
+      assert.file(expectedFiles);
+    });
+
+
   });
 
-  it('should tell you what to do next');
+  describe('end', function () {
+    it('should tell you what to do next');
+  });
+
 
 });
