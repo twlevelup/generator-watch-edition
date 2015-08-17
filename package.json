@@ -1,6 +1,6 @@
 {
-  "name": "generator-watch-page",
-  "version": "0.0.0",
+  "name": "generator-watch-edition",
+  "version": "0.0.1",
   "description": "Yeoman generator",
   "license": "MIT",
   "main": "app/index.js",
