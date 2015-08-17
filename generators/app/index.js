@@ -55,6 +55,7 @@ module.exports = yeoman.generators.Base.extend({
 
     this.filesNames = filesNames;
     this.templateParams = templateParams;
+    this.jsClassName = jsClassName;
 
     this.template('_page.js', 'client/src/js/pages/' + filesNames.page, templateParams);
     this.template('_spec.js', 'client/spec/pages/' + filesNames.spec, templateParams);
