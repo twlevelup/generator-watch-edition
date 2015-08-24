@@ -5,6 +5,7 @@
   "license": "MIT",
   "main": "app/index.js",
   "repository": "adamhope/generator-watch-page",
+  "private": true,
   "author": {
     "name": "Adam Hope",
     "email": "",
