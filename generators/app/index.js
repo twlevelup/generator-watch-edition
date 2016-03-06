@@ -1,8 +1,6 @@
 'use strict';
 var yeoman = require('yeoman-generator');
 var stringUtils = require('underscore.string');
-// var chalk = require('chalk');
-// var yosay = require('yosay');
 
 module.exports = yeoman.generators.Base.extend({
 
@@ -53,6 +51,7 @@ module.exports = yeoman.generators.Base.extend({
       filesNames: filesNames
     };
 
+    this.title = title;
     this.filesNames = filesNames;
     this.templateParams = templateParams;
     this.jsClassName = jsClassName;
@@ -69,8 +68,8 @@ module.exports = yeoman.generators.Base.extend({
   end: function () {
     // TODO something better than this
     this.log('To complete setup:');
-    this.log('add ' + this.filesNames.base + ': require(\'' + this.filesNames.base + '\') to src/js/pages/index.js');
-    this.log('add @import(\'' + this.filesNames.scss + '\'); to src/styles/app.scss');
+    this.log('add "' + this.title + ': require(\'./' + this.filesNames.base + '\')" to src/js/pages/index.js');
+    this.log('add "@import \'pages/' + this.filesNames.base + '\';" to src/styles/app.scss');
   }
 
 });

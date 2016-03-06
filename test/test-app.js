@@ -1,8 +1,8 @@
 'use strict';
 
 var path = require('path');
-var assert = require('yeoman-generator').assert;
-var helpers = require('yeoman-generator').test;
+var assert = require('yeoman-assert');
+var helpers = require('yeoman-test');
 
 describe('watch-page:app', function () {
 
@@ -18,16 +18,6 @@ describe('watch-page:app', function () {
   });
 
   describe('creating new files', function () {
-
-    it('should create the spec file', function () {
-      var expectedFiles = [
-        'client/spec/pages/anotherTestPage.spec.js',
-        'client/src/js/pages/anotherTestPage.js',
-        'client/src/styles/pages/_anotherTestPage.scss',
-        'client/src/templates/pages/anotherTestPage.hbs'
-      ];
-      assert.file(expectedFiles);
-    });
 
     it('should create the spec file', function () {
       var expectedFile = 'client/spec/pages/anotherTestPage.spec.js';
