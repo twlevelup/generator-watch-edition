@@ -17,9 +17,9 @@ describe('watch-page:app', function () {
       .on('end', done);
   });
 
-  describe('writing', function () {
+  describe('creating new files', function () {
 
-    it('creates the expected files', function () {
+    it('should create the spec file', function () {
       var expectedFiles = [
         'client/spec/pages/anotherTestPage.spec.js',
         'client/src/js/pages/anotherTestPage.js',
@@ -29,6 +29,25 @@ describe('watch-page:app', function () {
       assert.file(expectedFiles);
     });
 
+    it('should create the spec file', function () {
+      var expectedFile = 'client/spec/pages/anotherTestPage.spec.js';
+      assert.file(expectedFile);
+    });
+
+    it('should create the JS file', function () {
+      var expectedFile = 'client/src/js/pages/anotherTestPage.js';
+      assert.file(expectedFile);
+    });
+
+    it('should create the SCSS file', function () {
+      var expectedFile = 'client/src/styles/pages/_anotherTestPage.scss';
+      assert.file(expectedFile);
+    });
+
+    it('should create the template file', function () {
+      var expectedFile = 'client/src/templates/pages/anotherTestPage.hbs';
+      assert.file(expectedFile);
+    });
 
   });
 

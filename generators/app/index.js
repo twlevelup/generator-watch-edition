@@ -68,8 +68,9 @@ module.exports = yeoman.generators.Base.extend({
 
   end: function () {
     // TODO something better than this
-    this.log('Now add ' + this.jsClassName + ' to the router');
-    this.log('Then add @import(\'' + this.filesNames.scss + '\'); to app.scss');
+    this.log('To complete setup:');
+    this.log('add ' + this.filesNames.base + ': require(\'' + this.filesNames.base + '\') to src/js/pages/index.js');
+    this.log('add @import(\'' + this.filesNames.scss + '\'); to src/styles/app.scss');
   }
 
 });
