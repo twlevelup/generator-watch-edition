@@ -26,4 +26,4 @@ var <%= className %> = Page.extend({
 
 });
 
-module.exports = <%= className %>;
+module.exports = new <%= className %>();
